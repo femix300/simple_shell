@@ -147,12 +147,13 @@ int my_setenv(const char *name, const char *value, int overwrite)
 
 int my_unsetenv(const char *name)
 {
+	int i, j, name_len;
+
 	if (name == NULL || *name == '\0' || my_strchr(name, '=') != NULL || environ == NULL)
 	{
 		return 0;
 	}
 
-	int i, j, name_len;
 	name_len = strlen(name);
 
 	for (i = 0; environ[i] != NULL; i++)

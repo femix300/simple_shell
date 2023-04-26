@@ -9,7 +9,7 @@
 char *kpsh_get_input(void)
 {
 	char *input = NULL;
-	ssize_t bufsize;
+	size_t bufsize;
 
 	bufsize = 0;
 	if (getline(&input, &bufsize, stdin) == -1)

@@ -35,7 +35,6 @@ int my_setenv(const char *name, const char *value, int overwrite);
 int my_unsetenv(const char *name);
 int my_putchar(int c);
 void my_printf(char *format, ...);
-int my_snprintf(char *str, size_t size, const char *format, ...);
 
 #endif
 

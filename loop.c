@@ -6,12 +6,11 @@ void loop()
 	char **args;
 	int status;
 
-	status = 1;
-
 	do
 	{
 		getcwd(cwd, sizeof(cwd));
-		printf("%s-$ ", cwd);
+		my_printf("%s-$ ", cwd);
+		fflush(stdout);
 		input = kpsh_get_input();
 		args = kpsh_split_strings(input);
 		status = execute_command(args);

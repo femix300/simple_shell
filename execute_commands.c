@@ -57,7 +57,10 @@ int execute_command(char **args)
 	}
 	else
 	{
-		waitpid(pid, &status, WUNTRACED);
+		do 
+		{
+			waitpid(pid, &status, WUNTRACED);
+		} while (!WIFEXITED(status) && !WIFSIGNALED(status));
 	}
 
 	return (1);

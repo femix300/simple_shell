@@ -3,13 +3,15 @@
 char *handle_path(char **args)
 {
 	char *path;
-	char *command = args[0];
+	char *command;
 	char filename[MAX_INPUT_LENGTH];
 	char *path_duplicate;
 	char *token;
-	int path_len, command_len;
+	int path_len;
 
 	path = getenv("PATH");
+
+	command = args[0];
 
 	path_duplicate = (char *)malloc((strlen(path) + 1) * sizeof(char));
 	if (path_duplicate == NULL)
@@ -25,7 +27,6 @@ char *handle_path(char **args)
 	while (token != NULL)
 	{
 		path_len = strlen(token);
-		command_len = strlen(command);
 
 		strcpy(filename, token);
 		if (filename[path_len - 1] != '/')
