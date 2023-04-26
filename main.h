@@ -36,5 +36,17 @@ int my_unsetenv(const char *name);
 int my_putchar(int c);
 void my_printf(char *format, ...);
 
+char *my_getenv(const char *name);
+int my_strncmp(const char *s1, const char *s2, size_t n);
+char *my_memcpy(char *dest, char *src, unsigned int n);
+void *my_realloc(void *ptr, unsigned int new_size);
+char *my_strcat(char *dest, const char *src);
+int my_strcmp(char *fs1, char *ss2);
+char *my_strncpy(char *desti, const char *src, int b);
+int my_strileng(const char *s);
+char *my_strcpy(char *dest, const char *src);
+int my_atoi(char *s);
+
 #endif
+
 

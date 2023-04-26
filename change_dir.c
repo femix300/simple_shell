@@ -7,13 +7,13 @@ void change_directory(char **args)
 	char *target_dir;
 	char cwd[MAX_COMMAND_LENGTH];
 
-	home_dir = getenv("HOME");
+	home_dir = my_getenv("HOME");
 
-	if (args[1] == NULL || strcmp(args[1], "~") == 0)
+	if (args[1] == NULL || my_strcmp(args[1], "~") == 0)
 	{
 		target_dir = home_dir;
 	}
-	else if (strcmp(args[1], "-") == 0)
+	else if (my_strcmp(args[1], "-") == 0)
 	{
 		target_dir = prev_dir;
 	}
@@ -30,7 +30,7 @@ void change_directory(char **args)
 
 	if (chdir(target_dir) == 0)
 	{
-		strncpy(prev_dir, cwd, MAX_COMMAND_LENGTH);
+		my_strncpy(prev_dir, cwd, MAX_COMMAND_LENGTH);
 
 		if (getcwd(cwd, sizeof(cwd)) == NULL)
 		{

@@ -8,7 +8,7 @@ void kpsh_exit(char **args, int num_args)
 	}
 	else if (num_args == 2)
 	{
-		exit(atoi(args[1]));
+		exit(my_atoi(args[1]));
 	}
 	else
 	{

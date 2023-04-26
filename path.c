@@ -9,31 +9,31 @@ char *handle_path(char **args)
 	char *token;
 	int path_len;
 
-	path = getenv("PATH");
+	path = my_getenv("PATH");
 
 	command = args[0];
 
-	path_duplicate = (char *)malloc((strlen(path) + 1) * sizeof(char));
+	path_duplicate = (char *)malloc((my_strileng(path) + 1) * sizeof(char));
 	if (path_duplicate == NULL)
 	{
 		perror("Error:");
 		exit(EXIT_FAILURE);
 	}
 
-	strcpy(path_duplicate, path);
+	my_strcpy(path_duplicate, path);
 
 	token = my_strtok(path_duplicate, ":");
 
 	while (token != NULL)
 	{
-		path_len = strlen(token);
+		path_len = my_strileng(token);
 
-		strcpy(filename, token);
+		my_strcpy(filename, token);
 		if (filename[path_len - 1] != '/')
 		{
-			strcat(filename, "/");
+			my_strcat(filename, "/");
 		}
-		strcat(filename, command);
+		my_strcat(filename, command);
 
 		if (access(filename, X_OK) == 0)
 		{
@@ -48,4 +48,3 @@ char *handle_path(char **args)
 
 	return command;
 }
-

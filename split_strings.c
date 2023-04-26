@@ -25,7 +25,7 @@ char **kpsh_split_strings(char *str)
 		if (i >= buffsize)
 		{
 			buffsize += BUFF_SIZE;
-			tokens = realloc(tokens, buffsize * sizeof(char *));
+		        tokens = realloc(tokens, buffsize * sizeof(char *));
 			if (tokens == NULL)
 			{
 				exit(EXIT_FAILURE);
