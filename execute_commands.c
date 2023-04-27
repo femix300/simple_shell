@@ -62,7 +62,7 @@ int execute_command(char **args)
 
 	if (pid == 0)
 	{
-		if (execvp(args[0], args) < 0)
+		if (execve(command, args, environ) < 0)
 		{
 			perror("Error: ");
 			exit(EXIT_FAILURE);
@@ -79,6 +79,6 @@ int execute_command(char **args)
 			waitpid(pid, &status, WUNTRACED);
 		} while (!WIFEXITED(status) && !WIFSIGNALED(status));
 	}
+
 	return (1);
 }
-
