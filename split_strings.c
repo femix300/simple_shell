@@ -2,6 +2,7 @@
 /**
  * kpsh_split_strings - splits user string into argumetns(tokens)
  * @str: string to be splited
+ * Description: Spliting tokens
  * Return: an array of strings gotten from the string
  */
 char **kpsh_split_strings(char *str)

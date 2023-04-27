@@ -5,6 +5,8 @@
  *
  * @s: String
  *
+ * Description: How to get string length
+ *
  * Return: String length
  */
 int my_strileng(const char *s)
@@ -31,6 +33,8 @@ int my_strileng(const char *s)
  *
  * @b: maximum number of bytes to copy
  *
+ * Description: String copying
+ *
  * Return: pointer to the resulting string dest
  */
 char *my_strncpy(char *desti, const char *src, int b)
@@ -51,6 +55,8 @@ char *my_strncpy(char *desti, const char *src, int b)
  * @fs1: First string
  *
  * @ss2: Second string
+ *
+ * Description : Comparing strings
  *
  * Return: integer less than, equal to, or greater than zero if s1 is found,
  * respectively, to be less than, to match, or be greater than s2.
@@ -79,6 +85,8 @@ int my_strcmp(char *fs1, char *ss2)
  *
  * @src: source string
  *
+ * Description: A function that copies a string
+ *
  * Return: pointer to dest
  */
 char *my_strcpy(char *dest, const char *src)
@@ -99,6 +107,8 @@ char *my_strcpy(char *dest, const char *src)
  * @src1: source string 1
  * @src2: source string 2
  * @src3: source string 3
+ *
+ * Description: Copying multiple content
  *
  * Return: void
  */

@@ -2,6 +2,7 @@
 /**
 * handle_path - handles the path in a shell
 * @args: the arguments passes in
+* Description: A functions that handles shell path
 * Return: the path as a sommand
 */
 char *handle_path(char **args)

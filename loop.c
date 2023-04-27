@@ -1,6 +1,8 @@
 #include "main.h"
 /**
 * loop - a function that loops through other shell functions
+*
+* Description: How to loop
 * Return: nothing
 */
 

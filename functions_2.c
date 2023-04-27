@@ -4,6 +4,7 @@
  * my_strcat - concatenates two strings from src to dest
  * @dest: destination string
  * @src: source string
+ * Description: This function concatenates strings
  * Return: pointer to the resulting string dest
  */
 
@@ -29,6 +30,7 @@ char *my_strcat(char *dest, const char *src)
  * my_realloc - implementation of realloc function
  * @ptr: pointer to the old block of memory
  * @new_size: size of the new block of memory
+ * Description: How to implement Realloc system function
  *
  * Return: pointer to the new block of memory
  */
@@ -59,11 +61,13 @@ void *my_realloc(void *ptr, unsigned int new_size)
 }
 
 /**
- *my_memcpy - a function that copies memory area
- *@dest: memory where is stored
- *@src: memory where is copied
- *@n: number of bytes
+ * my_memcpy - a function that copies memory area
  *
+ * @dest: memory where is stored
+ * @src: memory where is copied
+ * @n: number of bytes
+ *
+ * Description: How to copy memory area
  *Return: copied memory with n byted changed
  */
 char *my_memcpy(char *dest, char *src, unsigned int n)
@@ -84,6 +88,8 @@ char *my_memcpy(char *dest, char *src, unsigned int n)
  * @s1: pointer to the first string
  * @s2: pointer to the second string
  * @n: number of bytes to compare
+ *
+ * Description: A function that compares strings
  *
  * Return: negative if s1 < s2, positive if s1 > s2, 0 if s1 == s2
  */
@@ -116,6 +122,8 @@ int my_strncmp(const char *s1, const char *s2, size_t n)
  * my_getenv - It returns the value environment variable
  *
  * @name: Environment name
+ *
+ * Description: Environmental variable
  *
  * Return: The value of the environment variable, or NULL if not found.
  */

@@ -5,6 +5,8 @@
  *
  * @name: Index name
  *
+ * Description: How to find a new environment index
+ *
  * Return: 0
  */
 int find_env_index(const char *name)
@@ -26,6 +28,8 @@ int find_env_index(const char *name)
  *
  * @new_var: Variable name
  *
+ * Description: How to insert new environment variable
+ *
  * Return: 0
  */
 int insert_new_env(char *new_var)
@@ -38,4 +42,3 @@ int insert_new_env(char *new_var)
 	environ[i + 1] = NULL;
 	return (0);
 }
-

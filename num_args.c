@@ -2,6 +2,7 @@
 /**
 * get_num_args - a function that counts the njumber of arguments
 * @args: the arguments
+* Description: Number of arguments counted
 * Return: the number of arguments
 */
 

@@ -6,6 +6,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <sys/wait.h>
+#include <stddef.h>
 #include <stdarg.h>
 
 
@@ -27,7 +28,6 @@ void set_env(char **args);
 void unset_env(char **args);
 char *handle_path(char **args);
 
-/* custom functions */
 char *my_strchr(const char *str, int ch);
 char *my_strtok(char *str, const char *delim);
 int my_setenv(const char *name, const char *value, int overwrite);

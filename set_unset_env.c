@@ -2,6 +2,7 @@
 /**
 * set_env - sets the environmental variable
 * @args: arguments passed into the shell
+* Description: How to set an environmental variable
 * Return: nothing
 */
 void set_env(char **args)
@@ -21,6 +22,7 @@ void set_env(char **args)
 /**
 * unset_env - unsets environmental variable
 * @args: arguments passed into the shell
+* Description: This functions unsets an environmental var
 * Return: nothing
 */
 void unset_env(char **args)

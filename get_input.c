@@ -2,7 +2,8 @@
 
 /**
  * kpsh_get_input - a function that gets user input from
- * stdin
+ *
+ * Description: Input prompt
  * Return: the input gotten from the user as a string
  */
 

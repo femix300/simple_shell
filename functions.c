@@ -2,8 +2,11 @@
 
 /**
  * my_strchr - locate character in string
+ *
  * @str: pointer to the string to be searched
  * @ch: character to be located
+ *
+ * Description: How to locate a character in a string
  * Return: pointer to the first occurrence of the character in the string,
  *         or NULL if the character is not found
  */
@@ -30,6 +33,7 @@ char *my_strchr(const char *str, int ch)
  * @str: The string to tokenize
  * @delim: The delimiter to use for tokenization
  *
+ * Description: Spliting strings into tokens
  * Return: A pointer to the next token or NULL if no more tokens are found
  */
 
@@ -78,6 +82,8 @@ char *my_strtok(char *str, const char *delim)
  * @overwrite: a flag indicating whether to overwrite
  * the variable if it already exists
  *
+ * Description: Modifying environmental variables
+ *
  * Return: 0 on success, -1 on failure
  */
 int my_setenv(const char *name, const char *value, int overwrite)
@@ -122,7 +128,9 @@ int my_setenv(const char *name, const char *value, int overwrite)
 /**
  * my_unsetenv - remove an environment variable
  * @name: the name of the environment variable to remove
+ * Description: A function that removes an environmental variable
  * Return: 0 on success, -1 on failure
+ *
  */
 
 int my_unsetenv(const char *name)
@@ -154,6 +162,8 @@ int my_unsetenv(const char *name)
 /**
  * my_atoi - Converts a string to integer
  * @s: string to be converted
+ *
+ * Description: String converter
  *
  * Return: Converted string
  */

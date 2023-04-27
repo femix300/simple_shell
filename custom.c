@@ -2,7 +2,10 @@
 
 /**
  * my_putchar - writes the character c to stdout
+ *
  * @c: The character that is to be printed
+ *
+ * Description: Custom implementation of putchar
  *
  * Return: On sucess 1.
  * on error, -1 is returned, and erno is set appropriately
@@ -17,6 +20,8 @@ int my_putchar(int c)
  * my_printf - custom implementation of printf function
  *
  * @format: format string
+ *
+ * Description: A custom printf function
  * Return: void
  */
 void my_printf(char *format, ...)
@@ -54,18 +59,3 @@ void my_printf(char *format, ...)
 
 	va_end(arg_list);
 }
-
-
-/**
- * my_snprintf - custom implementation of snprintf function
- *
- * @str: output string
- * @size: maximum length of output string
- * @format: format string
- * @...: variable arguments
- *
- * Return: the number of characters written (excluding null byte), or
- *         the number of characters that would have been written if
- *         the buffer was large enough.
- */
-

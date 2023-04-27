@@ -38,7 +38,11 @@ int handle_builtin_commands(char **args)
 }
 /**
  * execute_command - execute shell commands
+ *
  * @args: arguments to thr commands
+ *
+ * Description: This functions calls all built-in functions
+ *
  * Return: 1 or 0
  *
  */

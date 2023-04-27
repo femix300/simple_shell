@@ -1,10 +1,13 @@
 #include "main.h"
 /**
-* change_directory - changes shell directory
-* @args: arguments passed into the shell
-* Return: nothing
-*/
-
+ * change_directory - changes shell directory
+ *
+ * @args: Arguments passed into the shell
+ *
+ * Description: This functions helps in directory nav
+ *
+ * Return: Nothing
+ */
 void change_directory(char **args)
 {
 	char *home_dir;
