@@ -44,17 +44,17 @@ int handle_builtin_commands(char **args)
  */
 int execute_command(char **args)
 {
+	int status;
+	char *command = handle_path(args);
+	pid_t pid = fork();
+
 	if (handle_builtin_commands(args))
 		return (1);
-	char *command = handle_path(args);
-
 	if (access(command, X_OK) != 0)
 	{
 		fprintf(stderr, "%s: %d: %s: not found\n", "./hsh", 1, args[0]);
 		return (1);
 	}
-	int status;
-	pid_t pid = fork();
 
 	if (pid == 0)
 	{
