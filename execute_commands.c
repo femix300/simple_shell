@@ -1,5 +1,11 @@
 #include "main.h"
 
+/**
+* execute_command - execute shell commands
+* @args: arguments to thr commands
+* Return: 1 or 0
+*
+*/
 int execute_command(char **args)
 {
 	pid_t pid;

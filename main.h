@@ -14,7 +14,6 @@
 #define MAX_INPUT_LENGTH 1024
 #define MAX_COMMAND_LENGTH 100
 
-char cwd[MAX_COMMAND_LENGTH];
 extern char **environ;
 
 void loop(void);
@@ -24,8 +23,8 @@ int execute_command(char **args);
 void kpsh_exit(char **args, int num_args);
 int get_num_args(char **args);
 void change_directory(char **args);
-void set_env(char** args);
-void unset_env(char** args);
+void set_env(char **args);
+void unset_env(char **args);
 char *handle_path(char **args);
 
 /* custom functions */

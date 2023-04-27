@@ -72,7 +72,7 @@ char *my_strtok(char *str, const char *delim)
 }
 
 /**
- * setenv - add or modify an environment variable
+ * my_setenv - add or modify an environment variable
  * @name: the name of the environment variable to set
  * @value: the value to set the environment variable to
  * @overwrite: a flag indicating whether to overwrite
@@ -129,7 +129,7 @@ int my_setenv(const char *name, const char *value, int overwrite)
 }
 
 /**
- * unsetenv - remove an environment variable
+ * my_unsetenv - remove an environment variable
  * @name: the name of the environment variable to remove
  * Return: 0 on success, -1 on failure
  */
