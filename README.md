@@ -1,3 +1,3 @@
-This project is about a custom shell
+This project is about a custom shell.
 
 
