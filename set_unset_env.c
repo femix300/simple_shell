@@ -1,5 +1,9 @@
 #include "main.h"
-
+/**
+* set_env - sets the environmental variable
+* @args: arguments passed into the shell
+* Return: nothing
+*/
 void set_env(char **args)
 {
 	if (args[1] == NULL || args[2] == NULL || args[3] != NULL)
@@ -14,6 +18,11 @@ void set_env(char **args)
 	}
 }
 
+/**
+* unset_env - unsets environmental variable
+* @args: arguments passed into the shell
+* Return: nothing
+*/
 void unset_env(char **args)
 {
 	if (args[1] == NULL || args[2] != NULL)

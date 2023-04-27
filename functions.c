@@ -72,7 +72,7 @@ char *my_strtok(char *str, const char *delim)
 }
 
 /**
- * setenv - add or modify an environment variable
+ * my_setenv - add or modify an environment variable
  * @name: the name of the environment variable to set
  * @value: the value to set the environment variable to
  * @overwrite: a flag indicating whether to overwrite
@@ -80,7 +80,6 @@ char *my_strtok(char *str, const char *delim)
  *
  * Return: 0 on success, -1 on failure
  */
-
 int my_setenv(const char *name, const char *value, int overwrite)
 {
 	char *new_var;
@@ -98,38 +97,30 @@ int my_setenv(const char *name, const char *value, int overwrite)
 	if (new_var == NULL)
 		return (-1);
 	my_st(new_var, name, "=", value);
-	for (i = 0; environ[i] != NULL; i++)
+
+	i = find_env_index(name);
+	if (i >= 0)
 	{
-		if (my_strncmp(environ[i], name, nam_len) == 0 && environ[i][nam_len] == '=')
+		if (overwrite == 0)
 		{
-			if (overwrite == 0)
-			{
-				free(new_var);
-				return (0);
-			}
-			else
-			{
-				my_strncpy(environ[i], new_var, new_var_len);
-				free(new_var);
-				return (0);
-			}
+			free(new_var);
+			return (0);
 		}
-	}
-	if (environ[i] == NULL)
-	{
-		environ[i] = new_var;
-		environ[i + 1] = NULL;
-		return (0);
+		else
+		{
+			my_strncpy(environ[i], new_var, new_var_len);
+			free(new_var);
+			return (0);
+		}
 	}
 	else
 	{
-		free(new_var);
-		return (-1);
+		return (insert_new_env(new_var));
 	}
 }
 
 /**
- * unsetenv - remove an environment variable
+ * my_unsetenv - remove an environment variable
  * @name: the name of the environment variable to remove
  * Return: 0 on success, -1 on failure
  */

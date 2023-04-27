@@ -1,7 +1,7 @@
 #include "main.h"
 
-/*
- *my_strcat - concatenates two strings from src to dest
+/**
+ * my_strcat - concatenates two strings from src to dest
  * @dest: destination string
  * @src: source string
  * Return: pointer to the resulting string dest
@@ -35,7 +35,7 @@ char *my_strcat(char *dest, const char *src)
 void *my_realloc(void *ptr, unsigned int new_size)
 {
 	void *new_ptr;
-	size_t old_size = ptr ? sizeof(*ptr) : 0;
+	size_t old_size = ptr ? sizeof(*((char *) ptr)) * new_size : 0;
 
 	if (new_size == 0 && ptr != NULL)
 	{

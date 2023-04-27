@@ -1,5 +1,9 @@
 #include "main.h"
-
+/**
+ * kpsh_split_strings - splits user string into argumetns(tokens)
+ * @str: string to be splited
+ * Return: an array of strings gotten from the string
+ */
 char **kpsh_split_strings(char *str)
 {
 	int buffsize, i;
@@ -25,7 +29,7 @@ char **kpsh_split_strings(char *str)
 		if (i >= buffsize)
 		{
 			buffsize += BUFF_SIZE;
-		        tokens = realloc(tokens, buffsize * sizeof(char *));
+			tokens = my_realloc(tokens, buffsize * sizeof(char *));
 			if (tokens == NULL)
 			{
 				exit(EXIT_FAILURE);

@@ -1,4 +1,9 @@
 #include "main.h"
+/**
+* change_directory - changes shell directory
+* @args: arguments passed into the shell
+* Return: nothing
+*/
 
 void change_directory(char **args)
 {

@@ -1,15 +1,17 @@
 #include "main.h"
+/**
+* loop - a function that loops through other shell functions
+* Return: nothing
+*/
 
-void loop()
+void loop(void)
 {
 	char *input;
 	char **args;
 	int status;
 
-	do
-	{
-		getcwd(cwd, sizeof(cwd));
-		my_printf("%s-$ ", cwd);
+	do {
+		my_printf("$ ");
 		fflush(stdout);
 		input = kpsh_get_input();
 		args = kpsh_split_strings(input);

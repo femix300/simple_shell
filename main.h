@@ -14,7 +14,6 @@
 #define MAX_INPUT_LENGTH 1024
 #define MAX_COMMAND_LENGTH 100
 
-char cwd[MAX_COMMAND_LENGTH];
 extern char **environ;
 
 void loop(void);
@@ -24,8 +23,8 @@ int execute_command(char **args);
 void kpsh_exit(char **args, int num_args);
 int get_num_args(char **args);
 void change_directory(char **args);
-void set_env(char** args);
-void unset_env(char** args);
+void set_env(char **args);
+void unset_env(char **args);
 char *handle_path(char **args);
 
 /* custom functions */
@@ -42,6 +41,9 @@ char *my_memcpy(char *dest, char *src, unsigned int n);
 void *my_realloc(void *ptr, unsigned int new_size);
 void my_st(char *dest, const char *src1, const char *src2, const char *src3);
 char *my_strcat(char *dest, const char *src);
+int handle_builtin_commands(char **args);
+int insert_new_env(char *new_var);
+int find_env_index(const char *name);
 int my_strcmp(char *fs1, char *ss2);
 char *my_strncpy(char *desti, const char *src, int b);
 int my_strileng(const char *s);
