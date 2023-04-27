@@ -22,6 +22,8 @@ int my_putchar(int c)
 void my_printf(char *format, ...)
 {
 	va_list arg_list;
+	char *s;
+
 	va_start(arg_list, format);
 
 	while (*format != '\0')
@@ -32,14 +34,12 @@ void my_printf(char *format, ...)
 			switch (*format)
 			{
 				case 's':
+					s = va_arg(arg_list, char *);
+					while (*s != '\0')
 					{
-						char *s = va_arg(arg_list, char *);
-						while (*s != '\0')
-						{
-							my_putchar(*s++);
-						}
-						break;
+						my_putchar(*s++);
 					}
+					break;
 				default:
 					my_putchar(*format);
 					break;
@@ -54,6 +54,7 @@ void my_printf(char *format, ...)
 
 	va_end(arg_list);
 }
+
 
 /**
  * my_snprintf - custom implementation of snprintf function

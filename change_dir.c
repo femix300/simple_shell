@@ -21,13 +21,11 @@ void change_directory(char **args)
 	{
 		target_dir = args[1];
 	}
-
 	if (getcwd(cwd, sizeof(cwd)) == NULL)
 	{
 		perror("getcwd() error");
 		return;
 	}
-
 	if (chdir(target_dir) == 0)
 	{
 		my_strncpy(prev_dir, cwd, MAX_COMMAND_LENGTH);
@@ -37,11 +35,11 @@ void change_directory(char **args)
 			perror("getcwd() error");
 			return;
 		}
-
 		my_setenv("PWD", cwd, 1);
 	}
 	else
 	{
+
 		my_printf("cd: %s: No such file or directory\n", target_dir);
 	}
 }

@@ -1,5 +1,14 @@
 #include "main.h"
 
+
+/**
+ * kpsh_exit - Prompt to exit the shell
+ *
+ * @args: Arguments for exit string
+ * @num_args: Number of arguments
+ * Description: A function on how to exit
+ * Return: Error
+ */
 void kpsh_exit(char **args, int num_args)
 {
 	if (num_args == 1)
