@@ -1,10 +1,10 @@
 #include "main.h"
 /**
-* my_loop - a function that loops through other shell functions
-*
-* Description: How to loop
-* Return: nothing
-*/
+ * my_loop - a function that loops through other shell functions
+ *
+ * Description: How to loop
+ * Return: nothing
+ */
 
 void my_loop(void)
 {
@@ -12,36 +12,33 @@ void my_loop(void)
 	char **args;
 	int interger = 1, leng;
 	int stat;
-	
+
 	if (isatty(STDIN_FILENO) != 1)
-	interger = 0;
-	
-	signal(SIGINT, sit_hndl);
+		interger = 0;
 
 	do {
 		if (interger != 0)
 		{
-		length = my_strileng("$ ");
-		write(STDOUT_FILENO, "$ ", leng);
-                }
-		
-                inp = my_read_line();
-                if (inp == NULL)
-                        return;
-			
-                args = _split_line(input);
-                if (args == NULL)
-                {
-                        free(inp);
-                        return;
-                }
-		
-                status = _execute(args, input);
+			leng = my_strileng("$ ");
+			write(STDOUT_FILENO, "$ ", leng);
+		}
 
-                /* Free input and arguments. */
-                free(input);
-                free(args);
+		inp = my_linere();
+		if (inp == NULL)
+			return;
 
-        } while (stat == 1);
+		args = kpsh_split_strings(inp);
+		if (args == NULL)
+		{
+			free(inp);
+			return;
+		}
+
+		stat = exec_cm(args);
+
+		free(inp);
+		free(args);
+
+	} while (stat == 1);
 }
 

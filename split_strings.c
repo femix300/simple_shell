@@ -1,7 +1,7 @@
 #include "main.h"
 /**
  * kpsh_split_strings - splits user string into argumetns(tokens)
- * @str: string to be splited
+ * @str: String to be splitted
  * Description: Spliting tokens
  * Return: an array of strings gotten from the string
  */

@@ -43,7 +43,7 @@ void change_directory(char **args)
 			perror("getcwd() error");
 			return;
 		}
-		my_setenv("PWD", cwd, 1);
+		my_setenv("PWD", cwd);
 	}
 	else
 	{
@@ -51,4 +51,3 @@ void change_directory(char **args)
 		my_printf("cd: %s: No such file or directory\n", target_dir);
 	}
 }
-

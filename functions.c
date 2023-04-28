@@ -77,51 +77,50 @@ char *my_strtok(char *str, const char *delim)
 
 /**
  * my_setenv - add or modify an environment variable
- * @label: the name of the environment variable to set
+ * @name: the name of the environment variable to set
  * @value: the value to set the environment variable to
- *
  * Description: Modifying environmental variables
  *
  * Return: 0 on success, -1 on failure
  */
-int my_setenv(char *label, char *value)
+int my_setenv(char *name, char *value)
 {
-        char *impe, new_var[1024];
-        char **env = environ;
-        char **mas;
-        int check = 0, h;
+	char *impe, new_var[1024];
+	char **env = environ;
+	char **mas;
+	int check = 0, h;
 
-        if (value == NULL)
-        {
-                perror("hsh:");
-        }
-        impe = my_getenv(label);
-        if (impe != NULL)
-        {
-                my_strcpy(impe, value);
-        }
-        else
-        {
-                while (env[check] != NULL)
-                {
-                        check++;
-                }
-                check += 2;
-                mas = malloc(counter * sizeof(char *));
-                for (h = 0; env[h] != NULL; h++)
-                {
-                        mas[h] = env[h];
-                }
-                my_strcat(new_var, label);
-                my_strcat(new_var, "=");
-                my_strcat(new_var, value);
-                mas[h] = new_var;
-                mas[++h] = NULL;
-                environ = mas;
-                free(env);
-        }
+	if (value == NULL)
+	{
+		perror("hsh:");
+	}
+	impe = my_getenv(name);
+	if (impe != NULL)
+	{
+		my_strcpy(impe, value);
+	}
+	else
+	{
+		while (env[check] != NULL)
+		{
+			check++;
+		}
+		check += 2;
+		mas = malloc(check * sizeof(char *));
+		for (h = 0; env[h] != NULL; h++)
+		{
+			mas[h] = env[h];
+		}
+		my_strcat(new_var, name);
+		my_strcat(new_var, "=");
+		my_strcat(new_var, value);
+		mas[h] = new_var;
+		mas[++h] = NULL;
+		environ = mas;
+		free(env);
+	}
 
-        return (1);
+	return (1);
 }
 
 /**

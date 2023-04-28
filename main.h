@@ -20,17 +20,20 @@ extern char **environ;
 void my_loop(void);
 char *kpsh_get_input();
 char **kpsh_split_strings(char *str);
-int execute_command(char **args);
+char **my_pathsplt(char *sent, char *path_duplicate);
+int exec_cm(char **args);
 void kpsh_exit(char **args, int num_args);
 int get_num_args(char **args);
 void change_directory(char **args);
 void set_env(char **args);
 void unset_env(char **args);
-char *handle_path(char **args int *flg);
+char **my_chpath(char **args, int *flg);
 
 char *my_strchr(const char *str, int ch);
 char *my_strtok(char *str, const char *delim);
-int my_setenv(char *label, char *value)
+int my_setenv(char *name, char *value);
+void sit_hndl(int sit);
+char *my_linere(void);
 int my_unsetenv(const char *name);
 int my_putchar(int c);
 void my_printf(char *format, ...);
@@ -51,6 +54,7 @@ char *my_strcpy(char *dest, const char *src);
 int my_atoi(char *s);
 int error_1(char *buff);
 int error_2(char *buff, char *rea_path);
+int _putchar(char c);
 
 #endif
 

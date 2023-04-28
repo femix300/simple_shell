@@ -13,7 +13,7 @@ void set_env(char **args)
 		return;
 	}
 
-	if (my_setenv(args[1], args[2], 1) != 0)
+	if (my_setenv(args[1], args[2]) != 0)
 	{
 		perror("setenv");
 	}
