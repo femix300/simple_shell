@@ -1,27 +1,47 @@
 #include "main.h"
 /**
-* loop - a function that loops through other shell functions
+* my_loop - a function that loops through other shell functions
 *
 * Description: How to loop
 * Return: nothing
 */
 
-void loop(void)
+void my_loop(void)
 {
-	char *input;
+	char *inp;
 	char **args;
-	int status;
+	int interger = 1, leng;
+	int stat;
+	
+	if (isatty(STDIN_FILENO) != 1)
+	interger = 0;
+	
+	signal(SIGINT, sit_hndl);
 
 	do {
-		my_printf("$ ");
-		fflush(stdout);
-		input = kpsh_get_input();
-		args = kpsh_split_strings(input);
-		status = execute_command(args);
+		if (interger != 0)
+		{
+		length = my_strileng("$ ");
+		write(STDOUT_FILENO, "$ ", leng);
+                }
+		
+                inp = my_read_line();
+                if (inp == NULL)
+                        return;
+			
+                args = _split_line(input);
+                if (args == NULL)
+                {
+                        free(inp);
+                        return;
+                }
+		
+                status = _execute(args, input);
 
-		free(input);
-		free(args);
+                /* Free input and arguments. */
+                free(input);
+                free(args);
 
-	} while (status);
+        } while (stat == 1);
 }
 
