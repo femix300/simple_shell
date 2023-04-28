@@ -2,11 +2,9 @@
 
 /**
  * my_strchr - locate character in string
- *
  * @str: pointer to the string to be searched
  * @ch: character to be located
  *
- * Description: How to locate a character in a string
  * Return: pointer to the first occurrence of the character in the string,
  *         or NULL if the character is not found
  */
@@ -22,6 +20,7 @@ char *my_strchr(const char *str, int ch)
 	{
 		return ((char *)str);
 	}
+
 	else
 	{
 		return (NULL);
@@ -33,7 +32,6 @@ char *my_strchr(const char *str, int ch)
  * @str: The string to tokenize
  * @delim: The delimiter to use for tokenization
  *
- * Description: Spliting strings into tokens
  * Return: A pointer to the next token or NULL if no more tokens are found
  */
 
@@ -79,76 +77,79 @@ char *my_strtok(char *str, const char *delim)
  * my_setenv - add or modify an environment variable
  * @name: the name of the environment variable to set
  * @value: the value to set the environment variable to
- * Description: Modifying environmental variables
+ * @overwrite: a flag indicating whether to overwrite
+ * the variable if it already exists
  *
  * Return: 0 on success, -1 on failure
  */
-int my_setenv(char *name, char *value)
+
+
+int my_setenv(const char *name, const char *value, int overwrite)
 {
-	char *impe, new_var[1024];
-	char **env = environ;
-	char **mas;
-	int check = 0, h;
+	size_t i, max_environ = 100;
+	int namelen = my_strileng(name), valuelen = my_strileng(value);
+	size_t varlen = namelen + valuelen + 2;
+	char *new_var = malloc(varlen);
 
-	if (value == NULL)
+	if (!name || !*name || my_strchr(name, '=') || !value || !environ)
+		return (-1);
+
+	if (!new_var)
+		return (-1);
+
+	my_strcpy(new_var, name);
+	my_strcat(new_var, "=");
+	my_strcat(new_var, value);
+
+	for (i = 0; environ[i]; i++)
 	{
-		perror("hsh:");
-	}
-	impe = my_getenv(name);
-	if (impe != NULL)
-	{
-		my_strcpy(impe, value);
-	}
-	else
-	{
-		while (env[check] != NULL)
+		if (my_strncmp(environ[i], name, namelen) == 0 &&
+				environ[i][namelen] == '=')
 		{
-			check++;
+			if (overwrite)
+				my_strncpy(environ[i], new_var, varlen);
+
+			free(new_var);
+			return (0);
 		}
-		check += 2;
-		mas = malloc(check * sizeof(char *));
-		for (h = 0; env[h] != NULL; h++)
-		{
-			mas[h] = env[h];
-		}
-		my_strcat(new_var, name);
-		my_strcat(new_var, "=");
-		my_strcat(new_var, value);
-		mas[h] = new_var;
-		mas[++h] = NULL;
-		environ = mas;
-		free(env);
 	}
 
-	return (1);
+	if (i >= max_environ)
+	{
+		free(new_var);
+		return (-1);
+	}
+
+	environ[i] = new_var;
+	environ[i + 1] = NULL;
+
+	return (0);
 }
+
 
 /**
  * my_unsetenv - remove an environment variable
  * @name: the name of the environment variable to remove
- * Description: A function that removes an environmental variable
  * Return: 0 on success, -1 on failure
- *
  */
 
 int my_unsetenv(const char *name)
 {
-	int i, j, nam_len;
+	int i, j, name_len;
 
-	if (name == NULL || *name == '\0')
+	if (!name || !*name || my_strchr(name, '=') || !environ)
 		return (0);
-
-	if (my_strchr(name, '=') != NULL || environ == NULL)
-		return (0);
-
-	nam_len = my_strileng(name);
+	name_len = my_strileng(name);
 
 	for (i = 0; environ[i] != NULL; i++)
 	{
-		if (my_strncmp(environ[i], name, nam_len) == 0 && environ[i][nam_len] == '=')
+		if (my_strncmp(environ[i], name, name_len) == 0 &&
+				environ[i][name_len] == '=')
 		{
 			for (j = i; environ[j + 1] != NULL; j++)
+			{
 				environ[j] = environ[j + 1];
+			}
 			environ[j] = NULL;
 			return (0);
 		}
@@ -203,3 +204,5 @@ int my_atoi(char *s)
 
 	return (n);
 }
+
+

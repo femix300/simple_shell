@@ -1,10 +1,10 @@
 #include "main.h"
 /**
-* set_env - sets the environmental variable
-* @args: arguments passed into the shell
-* Description: How to set an environmental variable
-* Return: nothing
+* set_env - sets the environ var
+* @args: arguments
+* Return: void
 */
+
 void set_env(char **args)
 {
 	if (args[1] == NULL || args[2] == NULL || args[3] != NULL)
@@ -13,17 +13,16 @@ void set_env(char **args)
 		return;
 	}
 
-	if (my_setenv(args[1], args[2]) != 0)
+	if (my_setenv(args[1], args[2], 1) != 0)
 	{
 		perror("setenv");
 	}
 }
 
 /**
-* unset_env - unsets environmental variable
-* @args: arguments passed into the shell
-* Description: This functions unsets an environmental var
-* Return: nothing
+* unset_env - unsets the environ variable
+* @args: arguments
+* Return: void
 */
 void unset_env(char **args)
 {

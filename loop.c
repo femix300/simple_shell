@@ -1,17 +1,15 @@
 #include "main.h"
 /**
- * my_loop - a function that loops through other shell functions
- *
- * Description: How to loop
- * Return: nothing
- */
+* loop - loops throu functions
+* Return: void
+*/
 
-void my_loop(void)
+void loop(void)
 {
-	char *inp;
+	char *input;
 	char **args;
-	int interger = 1, leng;
-	int stat;
+	int status;
+	int interger = 1;
 
 	if (isatty(STDIN_FILENO) != 1)
 		interger = 0;
@@ -19,26 +17,27 @@ void my_loop(void)
 	do {
 		if (interger != 0)
 		{
-			leng = my_strileng("$ ");
-			write(STDOUT_FILENO, "$ ", leng);
+			my_printf("$ ");
 		}
 
-		inp = my_linere();
-		if (inp == NULL)
+		input = kpsh_get_input();
+
+		if (input == NULL)
 			return;
 
-		args = kpsh_split_strings(inp);
+		args = kpsh_split_strings(input);
+
 		if (args == NULL)
 		{
-			free(inp);
+			free(input);
 			return;
 		}
 
-		stat = exec_cm(args);
+		status = execute_command(args);
 
-		free(inp);
+		free(input);
 		free(args);
 
-	} while (stat == 1);
+	} while (status);
 }
 

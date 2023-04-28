@@ -1,51 +1,48 @@
 #include "main.h"
-
+#include "builtins.h"
 /**
- * exec_cm - execute shell commands
- *
- * @args: arguments to the commands
- *
- * Description: This functions calls all built-in functions
- *
+ * execute_command - executes the commands entered
+ * @args: the arguments
  * Return: 1
- *
  */
-int exec_cm(char **args)
+
+int execute_command(char **args)
 {
-	int stat, pid;
-	int flg = 0;
+	pid_t pid;
+	int status;
+	int i;
+	char *command;
 
-	args = my_chpath(args, &flg);
+	for (i = 0; builtins[i].name != NULL; i++)
+	{
+		if (my_strcmp(args[0], builtins[i].name) == 0)
+			(builtins[i].func(args));
+	}
 
-	if (args == NULL)
+	command = handle_path(args);
+	if (access(command, X_OK) != 0)
+	{
+		my_printf("%s: command not found\n", args[0]);
 		return (1);
-
+	}
 	pid = fork();
 	if (pid == 0)
 	{
-		if (execve(args[0], args, environ) == -1)
+		if (execve(command, args, environ) < 0)
 		{
-			perror("hsh");
-		}
-		if (flg == 1)
-		{
-			free(args[0]);
-			return (-1);
-		}
-		else if (pid < 0)
-		{
-			perror("hsh:");
-			if (flg == 1)
-				free(args[0]);
-			return (-1);
-		}
-		else
-		{
-			do {waitpid(pid, &stat, WUNTRACED);
-			} while (!WIFEXITED(stat) && !WIFSIGNALED(stat));
+			perror("Error:");
+			exit(EXIT_FAILURE);
 		}
 	}
-		if (flg == 1)
-			free(args[0]);
-		return (1);
+	else if (pid < 0)
+	{
+		perror("Error:");
+		exit(EXIT_FAILURE);
+	}
+	else
+	{
+		waitpid(pid, &status, WUNTRACED);
+	}
+	return (1);
 }
+

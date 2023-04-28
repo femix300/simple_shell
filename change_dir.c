@@ -1,13 +1,10 @@
 #include "main.h"
 /**
- * change_directory - changes shell directory
- *
- * @args: Arguments passed into the shell
- *
- * Description: This functions helps in directory nav
- *
- * Return: Nothing
- */
+* change_directory - changes the directory
+* @args: the arguments
+* Return: nothing
+*/
+
 void change_directory(char **args)
 {
 	char *home_dir;
@@ -16,7 +13,6 @@ void change_directory(char **args)
 	char cwd[MAX_COMMAND_LENGTH];
 
 	home_dir = my_getenv("HOME");
-
 	if (args[1] == NULL || my_strcmp(args[1], "~") == 0)
 	{
 		target_dir = home_dir;
@@ -34,6 +30,7 @@ void change_directory(char **args)
 		perror("getcwd() error");
 		return;
 	}
+
 	if (chdir(target_dir) == 0)
 	{
 		my_strncpy(prev_dir, cwd, MAX_COMMAND_LENGTH);
@@ -43,11 +40,12 @@ void change_directory(char **args)
 			perror("getcwd() error");
 			return;
 		}
-		my_setenv("PWD", cwd);
+
+		my_setenv("PWD", cwd, 1);
 	}
 	else
 	{
-
 		my_printf("cd: %s: No such file or directory\n", target_dir);
 	}
 }
+
