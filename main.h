@@ -26,7 +26,7 @@ int get_num_args(char **args);
 void change_directory(char **args);
 void set_env(char **args);
 void unset_env(char **args);
-char *handle_path(char **args);
+char *handle_path(char **args int *flg);
 
 char *my_strchr(const char *str, int ch);
 char *my_strtok(char *str, const char *delim);
