@@ -30,7 +30,7 @@ char *handle_path(char **args);
 
 char *my_strchr(const char *str, int ch);
 char *my_strtok(char *str, const char *delim);
-int my_setenv(const char *name, const char *value, int overwrite);
+int my_setenv(char *label, char *value)
 int my_unsetenv(const char *name);
 int my_putchar(int c);
 void my_printf(char *format, ...);
