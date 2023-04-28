@@ -49,6 +49,8 @@ char *my_strncpy(char *desti, const char *src, int b);
 int my_strileng(const char *s);
 char *my_strcpy(char *dest, const char *src);
 int my_atoi(char *s);
+int error_1(char *buff);
+int error_2(char *buff, char *rea_path);
 
 #endif
 
