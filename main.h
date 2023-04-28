@@ -17,7 +17,7 @@
 
 extern char **environ;
 
-void loop(void);
+void my_loop(void);
 char *kpsh_get_input();
 char **kpsh_split_strings(char *str);
 int execute_command(char **args);
