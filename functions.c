@@ -77,52 +77,51 @@ char *my_strtok(char *str, const char *delim)
 
 /**
  * my_setenv - add or modify an environment variable
- * @name: the name of the environment variable to set
+ * @label: the name of the environment variable to set
  * @value: the value to set the environment variable to
- * @overwrite: a flag indicating whether to overwrite
- * the variable if it already exists
  *
  * Description: Modifying environmental variables
  *
  * Return: 0 on success, -1 on failure
  */
-int my_setenv(const char *name, const char *value, int overwrite)
+int my_setenv(char *label, char *value)
 {
-	char *new_var;
-	size_t new_var_len;
-	int i, nam_len, valu_len;
+        char *impe, new_var[1024];
+        char **env = environ;
+        char **mas;
+        int check = 0, h;
 
-	if (name == NULL || *name == '\0' || value == NULL)
-		return (-1);
-	if (my_strchr(name, '=') != NULL || environ == NULL)
-		return (-1);
-	nam_len = my_strileng(name);
-	valu_len = my_strileng(value);
-	new_var_len = nam_len + valu_len + 2;
-	new_var = (char *)malloc(new_var_len);
-	if (new_var == NULL)
-		return (-1);
-	my_st(new_var, name, "=", value);
+        if (value == NULL)
+        {
+                perror("hsh:");
+        }
+        impe = my_getenv(label);
+        if (impe != NULL)
+        {
+                my_strcpy(impe, value);
+        }
+        else
+        {
+                while (env[check] != NULL)
+                {
+                        check++;
+                }
+                check += 2;
+                mas = malloc(counter * sizeof(char *));
+                for (h = 0; env[h] != NULL; h++)
+                {
+                        mas[h] = env[h];
+                }
+                my_strcat(new_var, label);
+                my_strcat(new_var, "=");
+                my_strcat(new_var, value);
+                mas[h] = new_var;
+                mas[++h] = NULL;
+                environ = mas;
+                free(env);
+        }
 
-	i = find_env_index(name);
-	if (i >= 0)
-	{
-		if (overwrite == 0)
-		{
-			free(new_var);
-			return (0);
-		}
-		else
-		{
-			my_strncpy(environ[i], new_var, new_var_len);
-			free(new_var);
-			return (0);
-		}
-	}
-	else
-	{
-		return (insert_new_env(new_var));
-	}
+        return (1);
 }
 
 /**
