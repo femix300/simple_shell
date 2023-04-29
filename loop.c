@@ -33,6 +33,9 @@ void loop(void)
 			return;
 		}
 
+		if (args[0] == NULL)
+			continue;
+
 		status = execute_command(args);
 
 		free(input);

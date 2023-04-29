@@ -13,19 +13,29 @@ int execute_command(char **args)
 	int i;
 	char *command;
 
+	if (args[0] == NULL)
+	{
+		return (1);
+	}
+
 	for (i = 0; builtins[i].name != NULL; i++)
 	{
 		if (my_strcmp(args[0], builtins[i].name) == 0)
+		{
 			(builtins[i].func(args));
+			return (1);
+		}
 	}
 
 	command = handle_path(args);
+
 
 	if (access(command, X_OK) != 0)
 	{
 		my_printf("%s: command not found\n", args[0]);
 		return (1);
 	}
+	
 
 	pid = fork();
 	if (pid == 0)
