@@ -22,7 +22,9 @@ void loop(void)
 		input = kpsh_get_input();
 
 		if (input == NULL)
+		{
 			continue;
+		}
 
 		args = kpsh_split_strings(input);
 
@@ -39,7 +41,7 @@ void loop(void)
 			continue;
 		}
 
-		status = execute_command(args);
+		status = execute_command(args, input);
 
 		free(input);
 		free(args);

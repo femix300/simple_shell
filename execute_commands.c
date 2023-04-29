@@ -6,7 +6,7 @@
  * Return: 1
  */
 
-int execute_command(char **args)
+int execute_command(char **args, char *input)
 {
 	pid_t pid;
 	int status;
@@ -15,6 +15,7 @@ int execute_command(char **args)
 
 	if (args[0] == NULL)
 	{
+		free(input);
 		return (1);
 	}
 

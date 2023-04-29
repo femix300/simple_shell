@@ -22,7 +22,7 @@ extern char **environ;
 void loop(void);
 char *kpsh_get_input();
 char **kpsh_split_strings(char *str);
-int execute_command(char **args);
+int execute_command(char **args, char *input);
 void kpsh_exit(char **args);
 int get_num_args(char **args);
 void change_directory(char **args);

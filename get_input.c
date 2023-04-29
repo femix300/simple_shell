@@ -15,7 +15,10 @@ char *kpsh_get_input(void)
 	if (getline(&input, &bufsize, stdin) == -1)
 	{
 		if (feof(stdin))
+		{
+			free(input);
 			exit(EXIT_SUCCESS);
+		}
 
 		perror("getinput");
 		exit(EXIT_FAILURE);
