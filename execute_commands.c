@@ -20,11 +20,14 @@ int execute_command(char **args)
 	}
 
 	command = handle_path(args);
+	printf("%s\n", command);
+
 	if (access(command, X_OK) != 0)
 	{
 		my_printf("%s: command not found\n", args[0]);
 		return (1);
 	}
+
 	pid = fork();
 	if (pid == 0)
 	{
