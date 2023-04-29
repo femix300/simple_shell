@@ -1,14 +1,13 @@
 #include "main.h"
 /**
-* loop - loops throu functions
-* Return: void
-*/
-
+ * loop - loops throu functions
+ * Return: void
+ */
 void loop(void)
 {
-	char *input;
-	char **args;
-	int status;
+	char *input = NULL;
+	char **args = NULL;
+	int status = 1;
 	int interger = 1;
 
 	if (isatty(STDIN_FILENO) != 1)
@@ -23,18 +22,22 @@ void loop(void)
 		input = kpsh_get_input();
 
 		if (input == NULL)
-			return;
+			continue;
 
 		args = kpsh_split_strings(input);
 
 		if (args == NULL)
 		{
 			free(input);
-			return;
+			continue;
 		}
 
 		if (args[0] == NULL)
+		{
+			free(input);
+			free(args);
 			continue;
+		}
 
 		status = execute_command(args);
 
