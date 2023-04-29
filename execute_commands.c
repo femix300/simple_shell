@@ -20,7 +20,6 @@ int execute_command(char **args)
 	}
 
 	command = handle_path(args);
-	printf("%s\n", command);
 
 	if (access(command, X_OK) != 0)
 	{
