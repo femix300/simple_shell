@@ -50,4 +50,6 @@ int my_strileng(const char *s);
 char *my_strcpy(char *dest, const char *src);
 int my_atoi(char *s);
 
+int check_args(char **args, char *input);
+
 #endif

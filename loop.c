@@ -12,20 +12,17 @@ void loop(void)
 
 	if (isatty(STDIN_FILENO) != 1)
 		interger = 0;
-
 	do {
 		if (interger != 0)
 		{
 			my_printf("$ ");
 		}
-
 		input = kpsh_get_input();
 
 		if (input == NULL)
 		{
 			continue;
 		}
-
 		args = kpsh_split_strings(input);
 
 		if (args == NULL)
