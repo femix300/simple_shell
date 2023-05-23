@@ -23,7 +23,7 @@ void cd_error_message(const char *message)
  *         or NULL if memory allocation fails or if num_str is NULL.
  */
 
-char *command_error(int line_no, char* p_name, char *cmd)
+char *command_error(int line_no, char *p_name, char *cmd)
 {
 	char *error_msg, num_str[12];
 	int len;
@@ -64,7 +64,7 @@ void print_error_message(int line_no, char *p_name, char *cmd)
 	int length;
 
 	error = command_error(line_no, p_name, cmd);
-	if (error) 
+	if (error)
 	{
 		length = my_strlen(error);
 		write(STDERR_FILENO, error, length);

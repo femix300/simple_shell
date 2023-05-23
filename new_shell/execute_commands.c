@@ -3,8 +3,10 @@
 /**
  * execute_commands - executes the commands entered
  * @args: the arguments
- * @input: the input string
- * Return: 1
+ * @line_number: the number of the current command, it shows
+ *               how many commands have been entered till present
+ * @prog_name: the name of the executable
+ * Return: 1 or 127 if command not found
  */
 
 int execute_commands(char **args, int line_number, char *prog_name)
@@ -46,9 +48,7 @@ int execute_commands(char **args, int line_number, char *prog_name)
 		exit(EXIT_FAILURE);
 	}
 	else
-	{
 		waitpid(pid, &status, WUNTRACED);
-	}
 	return (1);
 }
 

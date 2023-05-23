@@ -1,9 +1,9 @@
 #include "main.h"
 /**
- * * kpsh_split_strings - split input into tokens
- * * @str: the input string
- * * Return: the array of tokens
- * */
+ * split_tokens - split input into tokens
+ * @str: the input string
+ * Return: the array of tokens
+ */
 char **split_tokens(char *str)
 {
 	int buffsize, i;

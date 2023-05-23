@@ -1,10 +1,10 @@
 #include "main.h"
 
 /**
- * * handle_path - handles the path
- * * @args: arguments
- * * Return: void
- * */
+ * handle_path - handles the path
+ * @args: arguments
+ * Return: void
+ */
 char *handle_path(char **args)
 {
 	char *path;
@@ -26,7 +26,6 @@ char *handle_path(char **args)
 
 	my_strcpy(path_duplicate, path);
 	token = strtok(path_duplicate, ":");
-
 	while (token != NULL)
 	{
 		path_len = my_strlen(token);

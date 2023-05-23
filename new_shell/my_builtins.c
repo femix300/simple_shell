@@ -19,7 +19,6 @@ void kpsh_exit(char **args)
 	}
 	else if (num_args == 2)
 	{
-		free_bufs(args);
 		exit(my_atoi(args[1]));
 	}
 	else
@@ -90,9 +89,7 @@ void change_directory(char **args)
 		target_dir = prev_dir;
 	}
 	else
-	{
 		target_dir = args[1];
-	}
 	if (getcwd(cwd, sizeof(cwd)) == NULL)
 	{
 		perror("getcwd() error");

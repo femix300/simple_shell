@@ -6,7 +6,7 @@
  */
 void free_bufs(char **buffer)
 {
-	int i; 
+	int i;
 
 	if (buffer == NULL)
 		return;

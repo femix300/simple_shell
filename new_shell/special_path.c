@@ -21,10 +21,7 @@ char *handle_special_path(char **args)
 	{
 		if (access(command, F_OK | X_OK) == 0)
 			return (command);
-		else
-		{
-			return (NULL);
-		}
+		return (NULL);
 	}
 
 	return (NULL);

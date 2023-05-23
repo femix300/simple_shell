@@ -53,6 +53,7 @@ void expand_and_print_env_variable(const char *variable)
 void builtin_echo(char **args)
 {
 	int i = 1;
+
 	while (args[i] != NULL)
 	{
 		if (args[i][0] == '$')
@@ -74,22 +75,19 @@ void builtin_echo(char **args)
 }
 
 /**
- * print_env - Prints the environment variables.
+ * print_env - Prints out the environment variables.
  */
 
 void print_env(void)
 {
+	int i = 0;
 	char **env = environ;
 
-	while (*env != NULL)
+	while (env[i])
 	{
-		int i = 0;
-		while ((*env)[i] != '\0')
-		{
-			write(STDOUT_FILENO, &((*env)[i]), 1);
-			i++;
-		}
+		write(STDOUT_FILENO, (const void *)env[i], my_strlen(env[i]));
 		write(STDOUT_FILENO, "\n", 1);
-		env++;
+		i++;
 	}
+
 }

@@ -10,7 +10,7 @@
  *         if needle occurs nowhere in haystack, NULL is returned;
  *         otherwise, a pointer to the first character of the first
  *         occurrence of needle in haystack is returned.
- */ 
+ */
 const char *my_strstr(const char *haystack, const char *needle)
 {
 	const char *h;
@@ -117,22 +117,22 @@ int my_itoa(char *str, int num)
  * Return: A pointer to the newly allocated duplicated string,
  *         or NULL if memory allocation fails or if str is NULL.
  */
-char* my_strdup(const char* str)
+char *my_strdup(const char *str)
 {
 	size_t len;
-	char* new_str;
+	char *new_str;
 
 	if (str == NULL)
 	{
-		return NULL;
+		return (NULL);
 	}
 
 	len = strlen(str);
-	new_str = (char*) malloc((len + 1) * sizeof(char));
+	new_str = (char *) malloc((len + 1) * sizeof(char));
 
 	if (new_str == NULL)
 	{
-		return NULL;
+		return (NULL);
 	}
 
 	strcpy(new_str, str);

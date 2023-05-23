@@ -36,7 +36,7 @@ int my_setenv(const char *name, const char *value, int overwrite);
 int my_unsetenv(const char *name);
 int my_putchar(int c);
 void my_printf(char *format, ...);
-/* more function prototypes */
+/* more custom functions */
 char *my_getenv(const char *name);
 int my_strncmp(const char *s1, const char *s2, size_t n);
 char *my_memcpy(char *dest, char *src, unsigned int n);
@@ -48,7 +48,7 @@ int my_strlen(const char *s);
 char *my_strcpy(char *dest, const char *src);
 int my_atoi(char *s);
 
-/* new prototypes */
+/* new functions, custom functions and prototypes */
 int print_prompt(void);
 void free_bufs(char **buffer);
 void signal_handler(int n);

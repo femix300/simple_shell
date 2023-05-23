@@ -1,10 +1,10 @@
 #include "main.h"
 
 /**
- * kpsh_get_input - a function that gets user input from
+ * get_input - a function that gets user input from
  * stdin
  * Return: the input gotten from the user as a string
- */   
+ */
 
 char *get_input(void)
 {

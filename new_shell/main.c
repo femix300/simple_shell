@@ -1,9 +1,11 @@
 #include "main.h"
 
 /**
- *  * main- entry point
- *   * Return: 0 (success) always
- *    */
+ * main- entry point
+ * @argc: argument count
+ * @argv: argument vector
+ * Return: 0 (success) always
+ */
 
 int main(int argc, char **argv)
 {
@@ -13,7 +15,7 @@ int main(int argc, char **argv)
 
 	status = 1;
 	line_no = 1;
-	mode = 0
+	mode = 0;
 	(void)argc;
 	signal(SIGINT, signal_handler);
 	while (status)
