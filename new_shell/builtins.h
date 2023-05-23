@@ -5,10 +5,10 @@
 typedef void (*builtin_func_t)(char **);
 
 /**
- * * struct builtin - represents a built-in function
- * * @name: the name of the built-in function
- * * @func: a pointer to the built-in function
- * */
+ * struct builtin - represents a built-in function
+ * @name: the name of the built-in function
+ * @func: a pointer to the built-in function
+ */
 
 typedef struct builtin
 {

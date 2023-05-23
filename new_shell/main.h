@@ -21,7 +21,7 @@ extern char **environ;
 
 void loop(void);
 char *get_input(void);
-char** split_tokens(char* input);
+char **split_tokens(char *input);
 int execute_commands(char **args, int line_number, char *prog_name);
 void kpsh_exit(char **args);
 int get_num_args(char **args);
@@ -58,7 +58,7 @@ const char *my_strstr(const char *haystack, const char *needle);
 int my_itoa(char *str, int num);
 char *command_error(int line_no, char *p_name, char *cmd);
 void print_error_message(int line_no, char *p_name, char *cmd);
-char* my_strdup(const char* str);
+char *my_strdup(const char *str);
 
 int check_args(char **args, char *input);
 
