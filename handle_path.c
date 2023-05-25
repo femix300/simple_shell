@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * handle_path - handles the path
+ * handle_path - This handles the shell path
  * @args: arguments
  * Return: void
  */
