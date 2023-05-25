@@ -31,12 +31,15 @@ void unset_env(char **args);
 char *handle_path(char **args);
 
 /* custom functions */
+
 char *my_strchr(const char *str, int ch);
 int my_setenv(const char *name, const char *value, int overwrite);
 int my_unsetenv(const char *name);
 int my_putchar(int c);
 void my_printf(char *format, ...);
+
 /* more custom functions */
+
 char *my_getenv(const char *name);
 int my_strncmp(const char *s1, const char *s2, size_t n);
 char *my_memcpy(char *dest, char *src, unsigned int n);
@@ -49,6 +52,7 @@ char *my_strcpy(char *dest, const char *src);
 int my_atoi(char *s);
 
 /* new functions, custom functions and prototypes */
+
 int print_prompt(void);
 void free_bufs(char **buffer);
 void signal_handler(int n);
