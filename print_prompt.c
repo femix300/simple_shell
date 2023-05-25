@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * print_prompt - Prints the shell prompt.
+ * print_prompt - Shell prompt.
  *
  * Return: 1 if running in interactive mode, 0 otherwise.
  */
