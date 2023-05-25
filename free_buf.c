@@ -1,8 +1,8 @@
 #include "main.h"
 
 /**
- * free_bufs - Frees the memory allocated for a buffer.
- * @buffer: The buffer to be freed.
+ * free_bufs - Frees the memory.
+ * @buffer: Freed buffer.
  */
 void free_bufs(char **buffer)
 {
