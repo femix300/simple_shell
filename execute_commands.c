@@ -1,11 +1,11 @@
 #include "main.h"
 #include "builtins.h"
 /**
- * execute_commands - executes the commands entered
- * @args: the arguments
+ * execute_commands - Exectute commands
+ * @args: Arguments
  * @line_number: the number of the current command, it shows
  *               how many commands have been entered till present
- * @prog_name: the name of the executable
+ * @prog_name: Execuatble name
  * Return: 1 or 127 if command not found
  */
 
