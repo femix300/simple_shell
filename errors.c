@@ -2,7 +2,7 @@
 
 /**
  * cd_error_message - Prints an error message to stderr.
- * @message: The error message to be printed.
+ * @message: Error message.
  */
 
 void cd_error_message(const char *message)
