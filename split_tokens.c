@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * split_tokens - split input into tokens
+ * split_tokens - A function that split input into tokens
  * @str: the input string
  * Return: the array of tokens
  */
